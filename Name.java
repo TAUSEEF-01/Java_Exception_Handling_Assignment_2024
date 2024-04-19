@@ -58,7 +58,7 @@ public class Name {
         }
 
         try {
-            if (first_name.isEmpty() || last_name.isEmpty()) {
+            if (first_name.isEmpty() && last_name.isEmpty()) {
                 throw new Name_Exception("Name Exception found!");
             }
         } catch (Name_Exception e) {
