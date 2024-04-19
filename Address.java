@@ -28,7 +28,7 @@ public class Address {
 
                 for (int i = 0; i < len; i++) {
                     if (addr.charAt(i) == ' ') {
-                        p1 = i + 1;
+                        p1 = i;
                         break;
                     }
                     if (!((addr.charAt(i) >= '0' && addr.charAt(i) <= '9')
@@ -62,7 +62,7 @@ public class Address {
                     }
                 }
 
-                if (f) {
+                if (f || (p2 <= p1)) {
                     throw new Address_Exception("Address Exception found!");
                 }
             } catch (Address_Exception e) {
@@ -136,7 +136,7 @@ public class Address {
 
                 for (int i = 0; i < len; i++) {
                     if (addr.charAt(i) == ' ') {
-                        p1 = i + 1;
+                        p1 = i;
                         break;
                     }
                     if (!((addr.charAt(i) >= '0' && addr.charAt(i) <= '9')
@@ -170,7 +170,7 @@ public class Address {
                     }
                 }
 
-                if (f) {
+                if (f || (p2 <= p1)) {
                     throw new Address_Exception("Address Exception found!");
                 }
             } catch (Address_Exception e) {
