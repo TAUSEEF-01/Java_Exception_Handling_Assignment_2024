@@ -8,7 +8,15 @@ class NID_Passport_Exception extends Exception {
 
 public class NID_Passport {
 
-    public void NID_PASS() {
+    String nid;
+    String pass;
+
+    NID_Passport() {
+        nid = "";
+        pass = "";
+    }
+
+    public void set_NID_PASS() {
         Scanner sc = new Scanner(System.in);
 
         try {
@@ -47,24 +55,29 @@ public class NID_Passport {
             System.out.println("Invalid option! " + e);
         } finally {
             System.out.println("NID and Passport page ends here!");
-            sc.close();
         }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        clearScreen();
 
     }
 
     public void NID(Scanner sc) {
 
-        String id;
-
         try {
             System.out.println("Enter 11 digit NID number: ");
-            id = sc.nextLine();
+            nid = sc.nextLine();
 
-            if (id.isEmpty()) {
+            if (nid.isEmpty()) {
                 throw new NID_Passport_Exception("NID Exception found!");
             }
 
-            int len = id.length();
+            int len = nid.length();
             try {
                 if (len != 11) {
                     throw new NID_Passport_Exception("NID Exception found!");
@@ -78,7 +91,7 @@ public class NID_Passport {
             try {
                 boolean f = false;
                 for (int i = 0; i < len; i++) {
-                    if (!(id.charAt(i) >= '0' && id.charAt(i) <= '9')) {
+                    if (!(nid.charAt(i) >= '0' && nid.charAt(i) <= '9')) {
                         f = true;
                         break;
                     }
@@ -105,10 +118,10 @@ public class NID_Passport {
     public void passport(Scanner sc) {
         System.out.println("Enter Passport id: ");
         try {
-            String id = sc.nextLine();
-            int len = id.length();
+            pass = sc.nextLine();
+            int len = pass.length();
 
-            if (id.isEmpty()) {
+            if (pass.isEmpty()) {
                 throw new NID_Passport_Exception("Passport Exception found!");
             }
 
@@ -125,7 +138,7 @@ public class NID_Passport {
             try {
                 boolean f = false;
                 for (int i = 0; i < 2; i++) {
-                    if (!(id.charAt(i) >= 'A' && id.charAt(i) <= 'Z')) {
+                    if (!(pass.charAt(i) >= 'A' && pass.charAt(i) <= 'Z')) {
                         f = true;
                         break;
                     }
@@ -143,7 +156,7 @@ public class NID_Passport {
             try {
                 boolean f = false;
                 for (int i = 2; i < len; i++) {
-                    if (!(id.charAt(i) >= '0' && id.charAt(i) <= '9')) {
+                    if (!(pass.charAt(i) >= '0' && pass.charAt(i) <= '9')) {
                         f = true;
                         break;
                     }
@@ -165,5 +178,123 @@ public class NID_Passport {
         } finally {
             System.out.println("Passport page ends here!");
         }
+    }
+
+    public String get_NID() {
+        try {
+            if (nid.isEmpty()) {
+                throw new NID_Passport_Exception("NID Exception found!");
+            }
+
+            int len = nid.length();
+            try {
+                if (len != 11) {
+                    throw new NID_Passport_Exception("NID Exception found!");
+                }
+            } catch (NID_Passport_Exception e) {
+                System.out.println("Total number of digits are not 11! " + e);
+            } catch (Exception e) {
+                System.out.println("Invalid NID number! " + e);
+            }
+
+            try {
+                boolean f = false;
+                for (int i = 0; i < len; i++) {
+                    if (!(nid.charAt(i) >= '0' && nid.charAt(i) <= '9')) {
+                        f = true;
+                        break;
+                    }
+                }
+
+                if (f) {
+                    throw new NID_Passport_Exception("NID Exception found!");
+                }
+            } catch (NID_Passport_Exception e) {
+                System.out.println("Invalid NID number! " + e);
+            } catch (Exception e) {
+                System.out.println("Invalid NID number! " + e);
+            }
+
+            return nid;
+
+        } catch (NID_Passport_Exception e) {
+            System.out.println("No input is given! " + e);
+            return "";
+        } catch (Exception e) {
+            System.out.println("No input is given! " + e);
+            return "";
+        }
+
+    }
+
+    public String get_passport() {
+
+        try {
+
+            if (pass.isEmpty()) {
+                throw new NID_Passport_Exception("Passport Exception found!");
+            }
+
+            int len = pass.length();
+
+            try {
+                if (len != 9) {
+                    throw new NID_Passport_Exception("Passport Exception found!");
+                }
+            } catch (NID_Passport_Exception e) {
+                System.out.println("Passport length is invalid! " + e);
+            } catch (Exception e) {
+                System.out.println("Passport length is invalid! " + e);
+            }
+
+            try {
+                boolean f = false;
+                for (int i = 0; i < 2; i++) {
+                    if (!(pass.charAt(i) >= 'A' && pass.charAt(i) <= 'Z')) {
+                        f = true;
+                        break;
+                    }
+                }
+
+                if (f) {
+                    throw new NID_Passport_Exception("Passport Exception found!");
+                }
+            } catch (NID_Passport_Exception e) {
+                System.out.println("Invalid Passport id! " + e);
+            } catch (Exception e) {
+                System.out.println("Invalid Passport id! " + e);
+            }
+
+            try {
+                boolean f = false;
+                for (int i = 2; i < len; i++) {
+                    if (!(pass.charAt(i) >= '0' && pass.charAt(i) <= '9')) {
+                        f = true;
+                        break;
+                    }
+                }
+
+                if (f) {
+                    throw new NID_Passport_Exception("Passport Exception found!");
+                }
+            } catch (NID_Passport_Exception e) {
+                System.out.println("Invalid Passport id! " + e);
+            } catch (Exception e) {
+                System.out.println("Invalid Passport id! " + e);
+            }
+            return pass;
+
+        } catch (NID_Passport_Exception e) {
+            System.out.println("No input is given! " + e);
+            return "";
+        } catch (Exception e) {
+            System.out.println("No input is given! " + e);
+            return "";
+        }
+    }
+
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }
