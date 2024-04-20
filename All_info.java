@@ -67,4 +67,14 @@ public class All_info {
     public String get_address() {
         return Address.get_address();
     }
+
+    public void get_all_exceptions()
+    {
+        Name.get_name_exceptions();
+        Email.get_email_exceptions();
+        NID_Passport.get_NID_exceptions();
+        NID_Passport.get_passport_exceptions();
+        Birthdate.get_birthdate_exceptions();
+        Address.get_address_exceptions();
+    }
 }

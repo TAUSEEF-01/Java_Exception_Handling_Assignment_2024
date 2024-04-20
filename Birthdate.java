@@ -41,9 +41,9 @@ public class Birthdate {
                     throw new Birthdate_Exception("Birth date Exception found!");
                 }
             } catch (Birthdate_Exception e) {
-                System.out.println("Invalid Date! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             } catch (Exception e) {
-                System.out.println("Invalid Date! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             }
 
             try {
@@ -65,9 +65,9 @@ public class Birthdate {
                     throw new Birthdate_Exception("Birth date Exception found!");
                 }
             } catch (Birthdate_Exception e) {
-                System.out.println("Invalid Month! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             } catch (Exception e) {
-                System.out.println("Invalid Month! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             }
 
             try {
@@ -84,27 +84,27 @@ public class Birthdate {
                     throw new Birthdate_Exception("Birth date Exception found!");
                 }
             } catch (Birthdate_Exception e) {
-                System.out.println("Invalid Year! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             } catch (Exception e) {
-                System.out.println("Invalid Year! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             }
 
             try {
                 if (p1 == len || p2 == len) {
-                    throw new Birthdate_Exception("Birth date  Exception found!");
+                    throw new Birthdate_Exception("Birth date Exception found!");
                 }
             } catch (Birthdate_Exception e) {
-                System.out.println("Invalid input! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             } catch (Exception e) {
-                System.out.println("Invalid input! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             }
 
         } catch (Birthdate_Exception e) {
             bd = "";
-            System.out.println("Birth date is absent! " + e);
+            System.out.println("BirthdateBlank " + e);
         } catch (Exception e) {
             bd = "";
-            System.out.println("Birth date is absent! " + e);
+            System.out.println("BirthdateBlank " + e);
         } finally {
             System.out.println();
             System.out.println("Birth date page ends here!");
@@ -147,9 +147,9 @@ public class Birthdate {
                     throw new Birthdate_Exception("Birth date Exception found!");
                 }
             } catch (Birthdate_Exception e) {
-                System.out.println("Invalid Date! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             } catch (Exception e) {
-                System.out.println("Invalid Date! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             }
 
             try {
@@ -171,9 +171,9 @@ public class Birthdate {
                     throw new Birthdate_Exception("Birth date Exception found!");
                 }
             } catch (Birthdate_Exception e) {
-                System.out.println("Invalid Month! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             } catch (Exception e) {
-                System.out.println("Invalid Month! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             }
 
             try {
@@ -190,28 +190,121 @@ public class Birthdate {
                     throw new Birthdate_Exception("Birth date Exception found!");
                 }
             } catch (Birthdate_Exception e) {
-                System.out.println("Invalid Year! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             } catch (Exception e) {
-                System.out.println("Invalid Year! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             }
 
             try {
                 if (p1 == len || p2 == len) {
-                    throw new Birthdate_Exception("Birth date  Exception found!");
+                    throw new Birthdate_Exception("Birth date Exception found!");
                 }
             } catch (Birthdate_Exception e) {
-                System.out.println("Invalid input! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             } catch (Exception e) {
-                System.out.println("Invalid input! " + e);
+                System.out.println("WrongBirthdateFormat " + e);
             }
             return bd;
 
         } catch (Birthdate_Exception e) {
-            System.out.println("Birth date is absent! " + e);
+            System.out.println("BirthdateBlank " + e);
             return "";
         } catch (Exception e) {
-            System.out.println("Birth date is absent! " + e);
+            System.out.println("BirthdateBlank " + e);
             return "";
+        }
+    }
+
+    public void get_birthdate_exceptions() {
+
+        try {
+
+            if (bd.isEmpty())
+                throw new Birthdate_Exception("Birth date Exception found!");
+
+            int len = bd.length();
+            int p1 = len, p2 = len;
+
+            try {
+                boolean f = false;
+
+                for (int i = 0; i < len; i++) {
+                    if (bd.charAt(i) == ' ') {
+                        p1 = i + 1;
+                        break;
+                    }
+                    if (!(bd.charAt(i) >= '0' && bd.charAt(i) <= '9')) {
+                        f = true;
+                        break;
+                    }
+                }
+
+                if (f) {
+                    throw new Birthdate_Exception("Birth date Exception found!");
+                }
+            } catch (Birthdate_Exception e) {
+                System.out.println("WrongBirthdateFormat " + e);
+            } catch (Exception e) {
+                System.out.println("WrongBirthdateFormat " + e);
+            }
+
+            try {
+                boolean f = false;
+
+                for (int i = p1; i < len; i++) {
+                    if (bd.charAt(i) == ' ') {
+                        p2 = i + 1;
+                        break;
+                    }
+                    if (!((bd.charAt(i) >= 'A' && bd.charAt(i) <= 'Z')
+                            || (bd.charAt(i) >= 'a' && bd.charAt(i) <= 'z'))) {
+                        f = true;
+                        break;
+                    }
+                }
+
+                if (f) {
+                    throw new Birthdate_Exception("Birth date Exception found!");
+                }
+            } catch (Birthdate_Exception e) {
+                System.out.println("WrongBirthdateFormat " + e);
+            } catch (Exception e) {
+                System.out.println("WrongBirthdateFormat " + e);
+            }
+
+            try {
+                boolean f = false;
+
+                for (int i = p2; i < len; i++) {
+                    if (!(bd.charAt(i) >= '0' && bd.charAt(i) <= '9')) {
+                        f = true;
+                        break;
+                    }
+                }
+
+                if (f || ((len - p2) != 4)) {
+                    throw new Birthdate_Exception("Birth date Exception found!");
+                }
+            } catch (Birthdate_Exception e) {
+                System.out.println("WrongBirthdateFormat " + e);
+            } catch (Exception e) {
+                System.out.println("WrongBirthdateFormat " + e);
+            }
+
+            try {
+                if (p1 == len || p2 == len) {
+                    throw new Birthdate_Exception("Birth date Exception found!");
+                }
+            } catch (Birthdate_Exception e) {
+                System.out.println("WrongBirthdateFormat " + e);
+            } catch (Exception e) {
+                System.out.println("WrongBirthdateFormat " + e);
+            }
+
+        } catch (Birthdate_Exception e) {
+            System.out.println("BirthdateBlank " + e);
+        } catch (Exception e) {
+            System.out.println("BirthdateBlank " + e);
         }
     }
 

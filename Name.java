@@ -23,10 +23,10 @@ public class Name {
 
         } catch (Name_Exception e) {
             first_name = "";
-            System.out.println("First name is absent! " + e);
+            System.out.println("FirstNameAbsence " + e);
         } catch (Exception e) {
             first_name = "";
-            System.out.println("First name is absent! " + e);
+            System.out.println("FirstNameAbsence " + e);
         }
 
         try {
@@ -37,10 +37,10 @@ public class Name {
 
         } catch (Name_Exception e) {
             middle_name = "";
-            System.out.println("Middle name is absent! " + e);
+            System.out.println("MiddleNameAbsence " + e);
         } catch (Exception e) {
             middle_name = "";
-            System.out.println("Middle name is absent! " + e);
+            System.out.println("MiddleNameAbsence " + e);
         }
 
         try {
@@ -51,10 +51,10 @@ public class Name {
 
         } catch (Name_Exception e) {
             last_name = "";
-            System.out.println("Last name is absent! " + e);
+            System.out.println("LastNameAbsence " + e);
         } catch (Exception e) {
             last_name = "";
-            System.out.println("Last name is absent! " + e);
+            System.out.println("LastNameAbsence " + e);
         }
 
         try {
@@ -62,7 +62,10 @@ public class Name {
                 throw new Name_Exception("Name Exception found!");
             }
         } catch (Name_Exception e) {
-            System.out.println("First and last both names are absent! " + e);
+            first_name = "";
+            middle_name = "";
+            last_name = "";
+            System.out.println("NoNamePresent " + e);
         } finally {
             System.out.println();
             System.out.println("Name page ends here!");
@@ -84,10 +87,10 @@ public class Name {
 
         } catch (Name_Exception e) {
             first_name = "";
-            System.out.println("First name is absent! " + e);
+            System.out.println("FirstNameAbsence " + e);
         } catch (Exception e) {
             first_name = "";
-            System.out.println("First name is absent! " + e);
+            System.out.println("FirstNameAbsence " + e);
         }
 
         try {
@@ -96,10 +99,10 @@ public class Name {
 
         } catch (Name_Exception e) {
             last_name = "";
-            System.out.println("Last name is absent! " + e);
+            System.out.println("LastNameAbsence " + e);
         } catch (Exception e) {
             last_name = "";
-            System.out.println("Last name is absent! " + e);
+            System.out.println("LastNameAbsence " + e);
         }
 
         try {
@@ -108,11 +111,47 @@ public class Name {
             }
             return first_name + " " + middle_name + " " + last_name;
         } catch (Name_Exception e) {
-            System.out.println("First and last both names are absent! " + e);
+            System.out.println("NoNamePresent " + e);
             return "";
         } catch (Exception e) {
-            System.out.println("First and last both names are absent! " + e);
+            System.out.println("NoNamePresent " + e);
             return "";
+        }
+    }
+
+    public void get_name_exceptions() {
+        try {
+            if (first_name.isEmpty())
+                throw new Name_Exception("Name Exception found!");
+
+        } catch (Name_Exception e) {
+            first_name = "";
+            System.out.println("FirstNameAbsence " + e);
+        } catch (Exception e) {
+            first_name = "";
+            System.out.println("FirstNameAbsence " + e);
+        }
+
+        try {
+            if (last_name.isEmpty())
+                throw new Name_Exception("Name Exception found!");
+
+        } catch (Name_Exception e) {
+            last_name = "";
+            System.out.println("LastNameAbsence " + e);
+        } catch (Exception e) {
+            last_name = "";
+            System.out.println("LastNameAbsence " + e);
+        }
+
+        try {
+            if (first_name.isEmpty() && last_name.isEmpty()) {
+                throw new Name_Exception("Name Exception found!");
+            }
+        } catch (Name_Exception e) {
+            System.out.println("NoNamePresent " + e);
+        } catch (Exception e) {
+            System.out.println("NoNamePresent " + e);
         }
     }
 
@@ -121,3 +160,5 @@ public class Name {
         System.out.flush();
     }
 }
+
+// First and last both names are absent!
