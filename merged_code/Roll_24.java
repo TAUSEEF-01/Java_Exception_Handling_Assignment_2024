@@ -1457,8 +1457,21 @@ class NID_Passport {
 }
 
 class Birthdate_Exception extends Exception {
+    private Throwable cause;
+
     public Birthdate_Exception(String s) {
         super(s);
+    }
+
+    @Override
+    public synchronized Throwable initCause(Throwable cause) {
+        this.cause = cause;
+        return this;
+    }
+
+    @Override
+    public synchronized Throwable getCause() {
+        return this.cause;
     }
 }
 
@@ -1470,11 +1483,14 @@ class Birthdate {
         Scanner sc = new Scanner(System.in);
 
         try {
-            System.out.println("Enter Birth date: (Date-Month-Year)");
+            System.out.println("Enter Birth date: (DD Month YYYY):");
             bd = sc.nextLine();
 
-            if (bd.isEmpty())
-                throw new Birthdate_Exception("Birth date Exception found!");
+            if (bd.isEmpty()) {
+                Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                bd_e.initCause(new Exception("BirthdateBlank "));
+                throw bd_e;
+            }
 
             int len = bd.length();
             int p1 = len, p2 = len;
@@ -1494,12 +1510,23 @@ class Birthdate {
                 }
 
                 if (f) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Date!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Date!");
+                }
             }
 
             try {
@@ -1518,12 +1545,23 @@ class Birthdate {
                 }
 
                 if (f) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Month!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Month!");
+                }
             }
 
             try {
@@ -1537,12 +1575,23 @@ class Birthdate {
                 }
 
                 if (f || ((len - p2) != 4)) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Year!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Year!");
+                }
             }
 
             try {
@@ -1551,16 +1600,35 @@ class Birthdate {
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage());
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage());
+                }
             }
 
         } catch (Birthdate_Exception e) {
             bd = "";
             System.out.println("BirthdateBlank " + e);
+            System.out.println(e.getMessage());
+            Throwable cause = e.getCause();
+            if (cause != null) {
+                System.out.println("Cause: " + cause.getMessage());
+            }
         } catch (Exception e) {
             bd = "";
             System.out.println("BirthdateBlank " + e);
+            System.out.println(e.getMessage());
+            Throwable cause = e.getCause();
+            if (cause != null) {
+                System.out.println("Cause: " + cause.getMessage());
+            }
         } finally {
             System.out.println();
             System.out.println("Birth date page ends here!");
@@ -1579,8 +1647,11 @@ class Birthdate {
 
         try {
 
-            if (bd.isEmpty())
-                throw new Birthdate_Exception("Birth date Exception found!");
+            if (bd.isEmpty()) {
+                Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                bd_e.initCause(new Exception("BirthdateBlank "));
+                throw bd_e;
+            }
 
             int len = bd.length();
             int p1 = len, p2 = len;
@@ -1600,12 +1671,23 @@ class Birthdate {
                 }
 
                 if (f) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Date!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Date!");
+                }
             }
 
             try {
@@ -1624,12 +1706,23 @@ class Birthdate {
                 }
 
                 if (f) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Month!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Month!");
+                }
             }
 
             try {
@@ -1643,12 +1736,23 @@ class Birthdate {
                 }
 
                 if (f || ((len - p2) != 4)) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Year!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Year!");
+                }
             }
 
             try {
@@ -1657,16 +1761,38 @@ class Birthdate {
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage());
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage());
+                }
             }
+
             return bd;
 
         } catch (Birthdate_Exception e) {
             System.out.println("BirthdateBlank " + e);
+            System.out.println(e.getMessage());
+            Throwable cause = e.getCause();
+            if (cause != null) {
+                System.out.println("Cause: " + cause.getMessage());
+            }
+
             return "";
         } catch (Exception e) {
             System.out.println("BirthdateBlank " + e);
+            System.out.println(e.getMessage());
+            Throwable cause = e.getCause();
+            if (cause != null) {
+                System.out.println("Cause: " + cause.getMessage());
+            }
+
             return "";
         }
     }
@@ -1675,8 +1801,11 @@ class Birthdate {
 
         try {
 
-            if (bd.isEmpty())
-                throw new Birthdate_Exception("Birth date Exception found!");
+            if (bd.isEmpty()) {
+                Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                bd_e.initCause(new Exception("BirthdateBlank "));
+                throw bd_e;
+            }
 
             int len = bd.length();
             int p1 = len, p2 = len;
@@ -1696,12 +1825,23 @@ class Birthdate {
                 }
 
                 if (f) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Date!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Date!");
+                }
             }
 
             try {
@@ -1720,12 +1860,23 @@ class Birthdate {
                 }
 
                 if (f) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Month!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Month!");
+                }
             }
 
             try {
@@ -1739,12 +1890,23 @@ class Birthdate {
                 }
 
                 if (f || ((len - p2) != 4)) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    bd_e.initCause(new Exception("WrongBirthdateFormat "));
+                    throw bd_e;
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Year!");
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage() + "Invalid Year!");
+                }
             }
 
             try {
@@ -1753,14 +1915,33 @@ class Birthdate {
                 }
             } catch (Birthdate_Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage());
+                }
+
             } catch (Exception e) {
                 System.out.println("WrongBirthdateFormat " + e);
+                Throwable cause = e.getCause();
+                if (cause != null) {
+                    System.out.println("Cause: " + cause.getMessage());
+                }
             }
 
         } catch (Birthdate_Exception e) {
             System.out.println("BirthdateBlank " + e);
+            System.out.println(e.getMessage());
+            Throwable cause = e.getCause();
+            if (cause != null) {
+                System.out.println("Cause: " + cause.getMessage());
+            }
         } catch (Exception e) {
             System.out.println("BirthdateBlank " + e);
+            System.out.println(e.getMessage());
+            Throwable cause = e.getCause();
+            if (cause != null) {
+                System.out.println("Cause: " + cause.getMessage());
+            }
         }
     }
 

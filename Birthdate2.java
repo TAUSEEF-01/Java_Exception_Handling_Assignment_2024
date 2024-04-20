@@ -1,9 +1,9 @@
 import java.util.*;
 
-class Birthdate_Exception extends Exception {
+class Birthdate_Exception2 extends Exception {
     private Throwable cause;
 
-    public Birthdate_Exception(String s) {
+    public Birthdate_Exception2(String s) {
         super(s);
     }
 
@@ -19,7 +19,7 @@ class Birthdate_Exception extends Exception {
     }
 }
 
-public class Birthdate {
+public class Birthdate2 {
 
     String bd;
 
@@ -31,7 +31,7 @@ public class Birthdate {
             bd = sc.nextLine();
 
             if (bd.isEmpty()) {
-                Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                 bd_e.initCause(new Exception("BirthdateBlank "));
                 throw bd_e;
             }
@@ -54,11 +54,11 @@ public class Birthdate {
                 }
 
                 if (f) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -89,11 +89,11 @@ public class Birthdate {
                 }
 
                 if (f) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -119,11 +119,11 @@ public class Birthdate {
                 }
 
                 if (f || ((len - p2) != 4)) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -140,9 +140,9 @@ public class Birthdate {
 
             try {
                 if (p1 == len || p2 == len) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    throw new Birthdate_Exception2("Birth date Exception found!");
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -157,7 +157,7 @@ public class Birthdate {
                 }
             }
 
-        } catch (Birthdate_Exception e) {
+        } catch (Birthdate_Exception2 e) {
             bd = "";
             System.out.println("BirthdateBlank " + e);
             System.out.println(e.getMessage());
@@ -192,7 +192,7 @@ public class Birthdate {
         try {
 
             if (bd.isEmpty()) {
-                Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                 bd_e.initCause(new Exception("BirthdateBlank "));
                 throw bd_e;
             }
@@ -215,11 +215,11 @@ public class Birthdate {
                 }
 
                 if (f) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -250,11 +250,11 @@ public class Birthdate {
                 }
 
                 if (f) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -280,11 +280,11 @@ public class Birthdate {
                 }
 
                 if (f || ((len - p2) != 4)) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -301,9 +301,9 @@ public class Birthdate {
 
             try {
                 if (p1 == len || p2 == len) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    throw new Birthdate_Exception2("Birth date Exception found!");
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -320,7 +320,7 @@ public class Birthdate {
 
             return bd;
 
-        } catch (Birthdate_Exception e) {
+        } catch (Birthdate_Exception2 e) {
             System.out.println("BirthdateBlank " + e);
             System.out.println(e.getMessage());
             Throwable cause = e.getCause();
@@ -341,12 +341,12 @@ public class Birthdate {
         }
     }
 
-    public void get_birthdate_exceptions() {
+    public void get_Birthdate_Exception2s() {
 
         try {
 
             if (bd.isEmpty()) {
-                Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                 bd_e.initCause(new Exception("BirthdateBlank "));
                 throw bd_e;
             }
@@ -369,11 +369,11 @@ public class Birthdate {
                 }
 
                 if (f) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -404,11 +404,11 @@ public class Birthdate {
                 }
 
                 if (f) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -434,11 +434,11 @@ public class Birthdate {
                 }
 
                 if (f || ((len - p2) != 4)) {
-                    Birthdate_Exception bd_e = new Birthdate_Exception("Birth date Exception found!");
+                    Birthdate_Exception2 bd_e = new Birthdate_Exception2("Birth date Exception found!");
                     bd_e.initCause(new Exception("WrongBirthdateFormat "));
                     throw bd_e;
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -455,9 +455,9 @@ public class Birthdate {
 
             try {
                 if (p1 == len || p2 == len) {
-                    throw new Birthdate_Exception("Birth date Exception found!");
+                    throw new Birthdate_Exception2("Birth date Exception found!");
                 }
-            } catch (Birthdate_Exception e) {
+            } catch (Birthdate_Exception2 e) {
                 System.out.println("WrongBirthdateFormat " + e);
                 Throwable cause = e.getCause();
                 if (cause != null) {
@@ -472,7 +472,7 @@ public class Birthdate {
                 }
             }
 
-        } catch (Birthdate_Exception e) {
+        } catch (Birthdate_Exception2 e) {
             System.out.println("BirthdateBlank " + e);
             System.out.println(e.getMessage());
             Throwable cause = e.getCause();

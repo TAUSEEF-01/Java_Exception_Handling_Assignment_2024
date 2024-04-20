@@ -68,8 +68,7 @@ public class All_info {
         return Address.get_address();
     }
 
-    public void get_all_exceptions()
-    {
+    public void get_all_exceptions() {
         Name.get_name_exceptions();
         Email.get_email_exceptions();
         NID_Passport.get_NID_exceptions();
