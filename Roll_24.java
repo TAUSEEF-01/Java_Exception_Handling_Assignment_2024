@@ -24,7 +24,7 @@ public class Roll_24 {
         System.out.println("1. Input information");
         System.out.println("2. Show information with exceptions");
         System.out.println("3. Show only exceptions");
-        System.out.println("4. Show exceptions for id's");
+        System.out.println("4. Show exceptions for all ID's");
         System.out.println("5. Type any number and hit enter to EXIT!");
         System.out.println();
         System.out.print("Your choice: ");
